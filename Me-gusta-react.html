@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Gusta con React</title>
+    <style media="screen">
+        body{
+            font-size: 24px;
+        }
+        .fa-heart-o, .fa-heart{
+            cursor: pointer;
+            color: #ff2776;
+        }
+        .container{
+            display: inline-block;
+            margin-left: 5px;
+            color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <section id='app' class='content' ></section>
+
+    <script src="https://use.fontawesome.com/8cd79a324a.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.min.js"></script>
+    <script type="text/babel">
+        class MiComponente extends React.Component {
+
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    variable: '',
+                };
+
+                this.Click = this.Click.bind(this);
+            }
+
+            Click() {
+                const like = document.getElementById('like');
+
+                like.classList.toggle('fa-heart-o');
+
+                if (this.state.variable === '') {
+                    this.setState({
+                        variable: 'Te Gusta',
+                    })
+                }
+
+                else if (this.state.variable === 'Te Gusta') {
+                    this.setState({
+                        variable: 'Ya no te gusta, pero sabes que le llego la notificación :)',
+                    })
+                }
+                else {
+                    this.setState({
+                        variable: 'Te Gusta',
+                    })
+                }
+            };
+
+            render() {
+                const variable = this.props.variable;
+
+                return (
+                    <div>
+                        <i id='like' className="fa fa-heart-o fa-heart" aria-hidden="true" onClick={this.Click}></i>
+                        <div className='container'>
+                            {this.state.variable}
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <MiComponente />,
+
+            document.getElementById('app')
+        );
+
+    </script>
+</body>
+</html>
