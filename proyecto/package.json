@@ -2,7 +2,11 @@
   "name": "proyecto-react",
   "version": "1.0.0",
   "description": "Este es un proyecto para aprender react y webpack",
+  "author": "guido cavallo",
   "main": "index.js",
+  "scripts": {
+    "dev": "webpack -w"
+  },
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -15,9 +19,5 @@
     "babel-preset-react": "^6.23.0",
     "json-loader": "^0.5.4",
     "webpack": "^2.2.1"
-  },
-  "scripts": {
-    "webpack": "webpack"
-  },
-  "author": "guido cavallo"
+  }
 }
